@@ -1,0 +1,23 @@
+{
+  "name": "work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "pkg index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "directory-tree": "^2.2.9",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.2",
+    "nexe": "^4.0.0-beta.18",
+    "pkg": "^5.3.0"
+  }
+}
