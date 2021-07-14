@@ -1,2 +1,3 @@
 sam 
 console
+negi

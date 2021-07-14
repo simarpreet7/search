@@ -3,7 +3,7 @@ const _=require("lodash")
 const dirTree = require("directory-tree");
 const IntialFile=process.argv[2]; //filename
 const keywordFile=process.argv[3]; //
-
+const OutputFile=process.argv[4];
 let result=[];
 async function search(tree,keyword){
     if(_.isEmpty(tree)){
@@ -60,22 +60,17 @@ async function runner(){
     let write=""
 
 
-      for(let j=0;j<words.length;++j){
-        write+="####################################################################################"
-        write+="\n\n";
-          write+=(j+1)+") "+words[j].keyword+" keyword found at -> \n\n"
-          write+="_____________________________________________________________________________________________________\n\n"
-        for(let i=0;i<result.length;++i){   
-          if(words[j].keyword==result[i].keyword) {
-              write+="path : "+result[i].data.path+"\n"
-              write+="line number : "+result[i].data.line+"\n"
-              write+="text : "+result[i].data.value+"\n"
-              write+="_____________________________________________________________________________________________________\n\n"
-          }
+      // for(let j=0;j<words.length;++j){
+        write+="searched text | filePath | line number | text  "
+        write+="\n";
+        for(let i=0;i<result.length;++i){ 
+              write+=result[i].keyword+" | "  
+              write+=result[i].data.path+" | "
+              write+=result[i].data.line+" | "
+              write+=result[i].data.value+" | "
+              write+="\n"
         }  
-        write+="####################################################################################"
-        write+="\n\n\n\n\n\n"
-      }
-    fs.writeFileSync("output.txt", write);
+      //}
+    fs.writeFileSync(OutputFile, write);
 }
 runner();
